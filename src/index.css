@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.fira-mono-regular {
+  font-family: "Fira Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fira-mono-medium {
+  font-family: "Fira Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.fira-mono-bold {
+  font-family: "Fira Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+.loading-char {
+  opacity: 0;          
+  animation: fadeIn 1s forwards,letterGlow 1.5s 1s forwards; /* Adjust timings as needed */
+}
+
+
+@keyframes fadeIn {
+  to { opacity: 1; } 
+}
+
+@keyframes letterGlow {
+  0% { 
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 20px rgb(255, 255, 255);  /* Adjust glow color and intensity */
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+
+.bg-glow { 
+  animation: backgroundGlow 2s 2s forwards; 
+}
+
+@keyframes backgroundGlow {
+  0% { 
+    background-color: black; /* Assuming your original background color is black */
+    color: white;
+    
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust glow color and opacity */
+    color: rgba(0, 0, 0, 1);
+    
+    
+  }
+  100% {
+    background-color: black; 
+    color: white;
+  }
+}
