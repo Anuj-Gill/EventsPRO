@@ -10,52 +10,53 @@ export default function SignUp() {
         </div>
   
          {/* Right Column with Signup Form */}
-      <div className="col-span-3 rounded-md shadow-md p-8 bg-slate-200 text-center">
-        <h2 className="text-4xl font-bold mb-10">Create Account</h2>
+      <div className="rounded-tl-[50px] rounded-bl-[50px] col-span-3  w-rounded-md shadow-md p-8 bg-slate-200 text-center">
+        <h2 className="flex
+        text-4xl font-bold mb-10">Create Account</h2>
         <div className="text-center">
         <div className="mb-2">
-          <label htmlFor="name" className="block text-gray-700 font-bold mb-3">
+          <label htmlFor="name" className="flex text-gray-700 font-bold mb-3">
             Name
           </label>
           <input
             type="text"
             id="name"
             placeholder="Your Name"
-            className="w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-10"
+            className="flex w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-10"
           />
         </div>
         <div className="">
-          <label htmlFor="email" className="block text-gray-700 font-bold mb-3">
+          <label htmlFor="email" className="flex text-gray-700 font-bold mb-3">
             College Email
           </label>
           <input
             type="email"
             id="email"
             placeholder="Your Email"
-            className="w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-10"
+            className="flex w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-10"
           />
         </div>
         <div className="mb-6">
-          <label htmlFor="password" className="block text-gray-700 font-bold mb-3">
+          <label htmlFor="password" className="flex text-gray-700 font-bold mb-3">
             Password
           </label>
           <input
             type="password"
             id="password"
             placeholder="Your Password"
-            className="w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-10"
+            className="flex w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-10"
           />
         </div>
         </div>
         <div className="text-center"> 
         <button
           type="submit"
-          className="w-2/5 bg-blue-900 text-white py-2 rounded-md hover:bg-blue-800 transition-colors duration-300 mb-3"
+          className="flex w-4/6 bg-blue-900 text-white py-2 rounded-md hover:bg-blue-800 transition-colors duration-300 mb-3 justify-around"
         >
           Create Account
         </button>
         </div>
-        <p className="mt-4 text-center">
+        <p className="flex mt-4 text-center">
           Already have an account? <a href="#" className="text-blue-900 hover:underline">Login</a>
         </p>
       </div>
