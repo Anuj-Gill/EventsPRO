@@ -1,6 +1,6 @@
 import bgImage from '../assets/bg.png';
 
-export default function SignUp() {
+export default function Login() {
     return (
         <div className="grid grid-cols-4 h-screen" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
             {/* Left Column with Logo and Tagline */}
@@ -11,55 +11,41 @@ export default function SignUp() {
                 </p>
             </div>
 
-            {/* Right Column with Signup Form */}
+            {/* Right Column with login Form */}
             <div className="rounded-tl-[50px] bg-slate-400 rounded-bl-[50px] col-span-3 w-rounded-md shadow-md p-8 text-center backdrop-blur-2xl bg-opacity-20" style={{ boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', borderRadius: '20px' }}>
-                <h2 className="flex text-4xl font-bold mb-10 text-white">Create Account</h2>
+                <h2 className="flex text-4xl font-bold mb-10 text-white">Hey, Welcome back!</h2>
                 <div className="text-center">
-                    <div className="mb-2">
-                        <label htmlFor="name" className="flex text-white font-bold mb-3">
-                            Name
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            placeholder="Your Name"
-                            className="flex w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-10"
-                        />
-                    </div>
-                    <div className="mb-2">
-                        <label htmlFor="email" className="flex text-white font-bold mb-3">
+                    <div className="">
+                        <label htmlFor="email" className="flex text-white font-bold mb-4">
                             College Email
                         </label>
                         <input
                             type="email"
                             id="email"
                             placeholder="Your Email"
-                            className="flex w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-10"
+                            className="flex w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-6" // Reduced margin-bottom
                         />
                     </div>
-                    <div className="mb-6">
-                        <label htmlFor="password" className="flex text-white font-bold mb-3">
+                    <div className="mb-8">
+                        <label htmlFor="password" className="flex text-white font-bold mb-4">
                             Password
                         </label>
                         <input
                             type="password"
                             id="password"
                             placeholder="Your Password"
-                            className="flex w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-10"
+                            className="flex w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-8" // Increased margin-bottom
                         />
                     </div>
                 </div>
-                <div className="text-center">
+                <div className="text-center mt-12">
                     <button
                         type="submit"
-                        className="flex w-4/6 bg-red-600 text-white py-2 rounded-md transition-colors duration-300 mb-3 justify-around"
+                        className="flex w-4/6 bg-red-600 text-white py-2 rounded-md transition-colors duration-300 justify-around"
                     >
-                        Create Account
+                        Login
                     </button>
                 </div>
-                <p className="flex mt-4 text-center text-white">
-                    Already have an account?<a href="#" className="text-orange-600 ml-2 hover:underline">Login</a>
-                </p>
             </div>
         </div>
     );

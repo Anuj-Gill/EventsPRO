@@ -6,7 +6,8 @@ import { MainLoadingScreen } from './components/MainLoadingScreen'
 import { Home } from './components/Home'
 
 import {Routes, Route,BrowserRouter} from 'react-router-dom'
-import Signup from './components/Signup'
+import Signup from './components/signup'
+import Login from './components/Login'
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
       <Route path='/about' element={<MainLoadingScreen />} />
       <Route path='/home' element={<Home />} />
       <Route path='/signup' element={<Signup/>} />
-
+      <Route path='/login' element={<Login />} />
     </Routes>
   </BrowserRouter>
      
