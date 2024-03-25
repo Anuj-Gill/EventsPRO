@@ -10,8 +10,9 @@ export function Home() {
           Organize, promote, and execute events <br></br>within our <br></br>college community.
         </p>
         <div className='flex justify-between my-16'>
-          <button className='mr-20 bg-transparent border-[#FF8C00] border-[3px] py-1 px-6 text-white rounded-full'>Admin</button>
-          <button className='bg-transparent border-[#FF8C00] border-[3px] py-1 px-6 text-white rounded-full'>Student</button>
+          <button className='mr-20 bg-transparent border-[#FF8C00] border-[3px] py-1 px-6 text-white rounded-full transition-all duration-300 hover:bg-[#FF8C00] hover:text-black hover:font-semibold'
+          >Admin</button>
+          <button className='bg-transparent border-[#FF8C00] border-[3px] py-1 px-6 text-white rounded-full transition-all duration-300 hover:bg-[#FF8C00] hover:text-black hover:font-semibold'>Student</button>
         </div>
       </div>
     </div>

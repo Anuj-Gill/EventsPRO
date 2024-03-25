@@ -12,7 +12,7 @@ export default function Login() {
             </div>
 
             {/* Right Column with login Form */}
-            <div className="rounded-tl-[50px] bg-slate-400 rounded-bl-[50px] col-span-3 w-rounded-md shadow-md p-8 text-center backdrop-blur-2xl bg-opacity-20" style={{ boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', borderRadius: '20px' }}>
+            <div className="rounded-tl-[50px] bg-slate-400 rounded-bl-[50px] col-span-3 shadow-md p-8 text-center backdrop-blur-2xl bg-opacity-20" style={{ boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}>
                 <h2 className="flex text-4xl font-bold mb-10 text-white">Hey, Welcome back!</h2>
                 <div className="text-center">
                     <div className="">
