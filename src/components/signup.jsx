@@ -58,7 +58,7 @@ export default function SignUp() {
                     </button>
                 </div>
                 <p className="flex mt-4 text-center text-white">
-                    Already have an account?<a href="#" className="text-orange-600 ml-2 hover:underline">Login</a>
+                    Already have an account?<a href="#" className="text-white ml-2 hover:underline">Login</a>
                 </p>
             </div>
         </div>

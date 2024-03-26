@@ -8,8 +8,8 @@ export function Navbar() {
                 EventsPRO
             </div>
             <div className="flex justify-between items-center">
-                <button className="mr-3 bg-transparent text-white border-[3px] border-[#FF8C00] rounded-full px-5 flex items-center transition-all duration-300 hover:bg-[#FF8C00] hover:text-black hover:font-semibold">Home</button>
-                <button className="mr-2 bg-transparent text-white border-[3px] border-[#FF8C00] rounded-full px-5 flex items-center transition-all duration-300 hover:bg-[#FF8C00] hover:text-black hover:font-semibold ">About</button>
+                <button className="mr-3 w-32 justify-center bg-transparent text-white border-[3px] border-[#FF8C00] rounded-full py-1 px-[4px] flex items-center transition-all duration-300 hover:bg-[#FF8C00] hover:text-black hover:font-semibold">Home</button>
+                <button className="mr-2 w-32 justify-center bg-transparent text-white border-[3px] border-[#FF8C00] rounded-full py-1 px-[4px] flex items-center transition-all duration-300 hover:bg-[#FF8C00] hover:text-black hover:font-semibold ">About</button>
             </div>
         </div>
         
