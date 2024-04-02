@@ -8,6 +8,7 @@ import { Home } from './components/Home'
 import {Routes, Route,BrowserRouter} from 'react-router-dom'
 import Signup from './components/signup'
 import Login from './components/Login'
+import Committees from './components/Committees'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route path='/home' element={<Home />} />
       <Route path='/signup' element={<Signup/>} />
       <Route path='/login' element={<Login />} />
+      <Route path='/committees' element={<Committees/>} />
     </Routes>
   </BrowserRouter>
      
