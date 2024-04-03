@@ -9,6 +9,7 @@ import {Routes, Route,BrowserRouter} from 'react-router-dom'
 import Signup from './components/signup'
 import Login from './components/Login'
 import Committees from './components/Committees'
+import ViewEvents from './components/ViewEvents'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path='/signup' element={<Signup/>} />
       <Route path='/login' element={<Login />} />
       <Route path='/committees' element={<Committees/>} />
+      <Route path='/viewevents' element={<ViewEvents />} />
     </Routes>
   </BrowserRouter>
      
