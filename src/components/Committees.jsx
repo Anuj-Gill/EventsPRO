@@ -3,33 +3,101 @@ import bgImage from '../assets/bg.png';
 
 export default function Committees() {
   return (
-    <div className="min-h-screen bg-cover bg-no-repeat bg-center flex flex-col items-center justify-center scrol" style={{ backgroundImage: `url(${bgImage})` }}>
+    <div
+      className="flex flex-col items-center justify-start min-h-screen pt-12"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <NavbarAfterLogin />
-      <div className="container mx-auto">
-        <div className="mb-10 mt-12 pl-52">
-          <h1 className="text-white text-6xl font-bold">Hello, Arkan!</h1>
+      <div className="container mx-auto mt-16 -mt-1 w-5/6 px-4">
+
+        <div className="mb-10 mt-12">
+          <h1 className="text-white text-6xl font-bold">Hello, User!</h1>
         </div>
-        <div className="flex flex-wrap justify-center pl-52">
-          <div className="w-full mt-10 flex">
-            <button className="w-32 px-12 py-6 bg-white text-black rounded-2xl transition-all duration-300 hover:bg-black hover:text-white hover:font-semibold hover:shadow-md mr-52">
-              GDSC
-            </button>
-            <button className="w-32 px-12 py-6 bg-white text-black rounded-2xl transition-all duration-300 hover:bg-black hover:text-white hover:font-semibold hover:shadow-md mr-52">
-              CSI
-            </button>
-            <button className="w-32 px-12 py-6 bg-white text-black rounded-2xl transition-all duration-300 hover:bg-black hover:text-white hover:font-semibold hover:shadow-md">
-              ITSA
-            </button>
+        <div className="flex flex-wrap justify-between mb-8"> {/* Flex wrapper for rows with space between each button */}
+          {/* First row of buttons */}
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8 "> {/* Button div with rounded corners and margin */}
+          <div className="flex justify-center items-center bg-gray-300 rounded-full w-16 h-16 mr-2"></div> {/* Rounded image placeholder */}
+            <h3 className="text-lg pt-4 font-semibold">GDSC</h3>
           </div>
-          <div className="w-full mb-10 flex">
-            <button className="w-32 px-12 py-6 bg-white text-black rounded-2xl transition-all duration-300 hover:bg-black hover:text-white hover:font-semibold hover:shadow-md mr-52 mt-28">
-              IEEE
-            </button>
-            <button className="w-32 px-12 py-6 bg-white text-black rounded-2xl transition-all duration-300 hover:bg-black hover:text-white hover:font-semibold hover:shadow-md mt-28">
-              BEEE
-            </button>
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
+            <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex flex-col justify-center">
+              <h3 className="text-lg pt-4 font-semibold">CSI</h3>
+            </div>
+          </div>
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
+            <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex flex-col justify-center">
+              <h3 className="text-lg pt-4 font-semibold">ITSA</h3>
+            </div>
+          </div>
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8"> {/* Button div with rounded corners and margin */}
+            <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex flex-col justify-center">
+              <h3 className="text-lg pt-4 font-semibold">GDSC</h3>
+            </div>
           </div>
         </div>
+
+        <div className="flex flex-wrap justify-between mb-8"> {/* Flex wrapper for rows with space between each button */}
+          {/* second row of buttons */}
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
+            <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex flex-col justify-center">
+              <h3 className="text-lg pt-4 font-semibold">GDSC</h3>
+            </div>
+          </div>
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
+            <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex flex-col justify-center">
+              <h3 className="text-lg pt-4 font-semibold">CSI</h3>
+            </div>
+          </div>
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
+            <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex flex-col justify-center">
+              <h3 className="text-lg pt-4 font-semibold">ITSA</h3>
+            </div>
+          </div>
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8"> {/* Button div with rounded corners and margin */}
+            <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex flex-col justify-center">
+              <h3 className="text-lg pt-4 font-semibold">GDSC</h3>
+            </div>
+          </div>
+        </div>
+      
+        <div className="flex flex-wrap justify-between mb-8"> {/* Flex wrapper for rows with space between each button */}
+  {/* Third row of buttons */}
+  <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
+    <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+    <div className="flex flex-col justify-center">
+      <h3 className="text-lg pt-4 font-semibold">GDSC</h3>
+    </div>
+  </div>
+  <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
+    <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+    <div className="flex flex-col justify-center">
+      <h3 className="text-lg pt-4 font-semibold">CSI</h3>
+    </div>
+  </div>
+  <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
+    <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+    <div className="flex flex-col justify-center">
+      <h3 className="text-lg pt-4 font-semibold">ITSA</h3>
+    </div>
+  </div>
+  <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8"> {/* Button div with rounded corners and margin */}
+    <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+    <div className="flex flex-col justify-center">
+      <h3 className="text-lg pt-4 font-semibold">GDSC</h3>
+    </div>
+  </div>
+</div>
       </div>
     </div>
   );
