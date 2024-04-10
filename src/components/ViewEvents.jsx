@@ -3,8 +3,13 @@ import bgImage from '../assets/bg.png';
 
 export default function ViewEvents() {
     return (
-      <div className="min-h-screen bg-cover bg-no-repeat bg-center flex flex-col items-center justify-center" style={{ backgroundImage: `url(${bgImage})` }}>
-        
+      <div className="flex flex-col items-center justify-start min-h-screen pt-12"
+      style={{
+      backgroundImage: `url(${bgImage})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      }}
+      >
         <NavbarAfterLogin />
         <div className="container mx-auto">
           <div className="mb-10 mt-12 pl-52">

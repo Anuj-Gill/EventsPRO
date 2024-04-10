@@ -12,15 +12,15 @@ export default function Committees() {
       }}
     >
       <NavbarAfterLogin />
-      <div className="container mx-auto mt-16 -mt-1 w-5/6 px-4">
+      <div className="container mx-auto mt-16  w-5/6 px-4">
 
         <div className="mb-10 mt-12">
-          <h1 className="text-white text-6xl font-bold">Hello, User!</h1>
+          <h1 className="text-white text-6xl font-bold">Hello, Username!</h1>
         </div>
         <div className="flex flex-wrap justify-between mb-8"> {/* Flex wrapper for rows with space between each button */}
           {/* First row of buttons */}
           <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8 "> {/* Button div with rounded corners and margin */}
-          <div className="flex justify-center items-center bg-gray-300 rounded-full w-16 h-16 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex justify-center items-center bg-gray-300 rounded-full w-16 h-16 mr-2"></div> {/* Rounded image placeholder */}
             <h3 className="text-lg pt-4 font-semibold">GDSC</h3>
           </div>
           <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
@@ -70,34 +70,34 @@ export default function Committees() {
             </div>
           </div>
         </div>
-      
+
         <div className="flex flex-wrap justify-between mb-8"> {/* Flex wrapper for rows with space between each button */}
-  {/* Third row of buttons */}
-  <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
-    <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
-    <div className="flex flex-col justify-center">
-      <h3 className="text-lg pt-4 font-semibold">GDSC</h3>
-    </div>
-  </div>
-  <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
-    <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
-    <div className="flex flex-col justify-center">
-      <h3 className="text-lg pt-4 font-semibold">CSI</h3>
-    </div>
-  </div>
-  <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
-    <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
-    <div className="flex flex-col justify-center">
-      <h3 className="text-lg pt-4 font-semibold">ITSA</h3>
-    </div>
-  </div>
-  <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8"> {/* Button div with rounded corners and margin */}
-    <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
-    <div className="flex flex-col justify-center">
-      <h3 className="text-lg pt-4 font-semibold">GDSC</h3>
-    </div>
-  </div>
-</div>
+          {/* Third row of buttons */}
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
+            <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex flex-col justify-center">
+              <h3 className="text-lg pt-4 font-semibold">GDSC</h3>
+            </div>
+          </div>
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
+            <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex flex-col justify-center">
+              <h3 className="text-lg pt-4 font-semibold">CSI</h3>
+            </div>
+          </div>
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8 mr-8"> {/* Button div with rounded corners and margin */}
+            <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex flex-col justify-center">
+              <h3 className="text-lg pt-4 font-semibold">ITSA</h3>
+            </div>
+          </div>
+          <div className="flex items-start justify-center rounded-3xl bg-white p-4 w-40 h-24 mb-8"> {/* Button div with rounded corners and margin */}
+            <div className="flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 mr-2"></div> {/* Rounded image placeholder */}
+            <div className="flex flex-col justify-center">
+              <h3 className="text-lg pt-4 font-semibold">GDSC</h3>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

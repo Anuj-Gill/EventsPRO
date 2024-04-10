@@ -10,6 +10,7 @@ import Signup from './components/signup'
 import Login from './components/Login'
 import Committees from './components/Committees'
 import ViewEvents from './components/ViewEvents'
+import EventHeadHome from './components/EventHeadHome'
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
       <Route path='/login' element={<Login />} />
       <Route path='/committees' element={<Committees/>} />
       <Route path='/viewevents' element={<ViewEvents />} />
+      <Route path='/eventheadhome' element={<EventHeadHome />} />
+
     </Routes>
   </BrowserRouter>
      
