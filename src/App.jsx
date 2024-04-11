@@ -10,6 +10,8 @@ import Signup from './components/signup'
 import Login from './components/Login'
 import Committees from './components/Committees'
 import ViewEvents from './components/ViewEvents'
+import { HeadHome } from './components/HeadHome'
+import { EventForm } from './components/EventForm'
 
 
 function App() {
@@ -19,12 +21,13 @@ function App() {
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home />} />
-      {/* <Route path='/about' element={<MainLoadingScreen />} /> */}
       <Route path='/home' element={<Home />} />
       <Route path='/signup' element={<Signup/>} />
       <Route path='/login' element={<Login />} />
       <Route path='/committees' element={<Committees/>} />
       <Route path='/viewevents' element={<ViewEvents />} />
+      <Route path="/headhome" element={<HeadHome />} />
+      <Route path={'/eventform'} element={<EventForm />} />
     </Routes>
   </BrowserRouter>
      

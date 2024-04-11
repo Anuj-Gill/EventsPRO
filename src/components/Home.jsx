@@ -2,9 +2,11 @@ import { Navbar } from './Navbar';
 import bgImage from '../assets/bg.png';
 import { MainLoadingScreen } from './MainLoadingScreen';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Home() {
-  const [loadingScreen, setLoadingScreen] = useState(true)
+  const [loadingScreen, setLoadingScreen] = useState(true);
+  const navigate = useNavigate();
   
   useEffect(() => {
     setTimeout(() => {
@@ -36,8 +38,9 @@ export function Home() {
             </p>
             <div className='flex justify-between my-16'>
               <button className='mr-20 w-32 bg-transparent border-[#FF8C00] border-[3px] py-2 px-6 text-white rounded-full transition-all duration-300 hover:bg-[#FF8C00] hover:text-black hover:font-semibold'
-              >Admin</button>
-              <button className='w-32 bg-transparent border-[#FF8C00] border-[3px] py-2 px-6 text-white rounded-full transition-all duration-300 hover:bg-[#FF8C00] hover:text-black hover:font-semibold'>Student</button>
+              onClick={() => navigate('/signup')}
+              >SignUp</button>
+              <button className='w-32 bg-transparent border-[#FF8C00] border-[3px] py-2 px-6 text-white rounded-full transition-all duration-300 hover:bg-[#FF8C00] hover:text-black hover:font-semibold' onClick={() => navigate('/login')}>Login</button>
             </div>
           </div>
         </div>
