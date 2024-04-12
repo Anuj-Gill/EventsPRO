@@ -10,12 +10,12 @@ import Signup from './components/signup'
 import Login from './components/Login'
 import Committees from './components/Committees'
 import ViewEvents from './components/ViewEvents'
-<<<<<<< HEAD
 import { HeadHome } from './components/HeadHome'
 import { EventForm } from './components/EventForm'
-=======
-import EventHeadHome from './components/EventHeadHome'
->>>>>>> 12e8e0689df18df4eeacb11efef899b5b195e2fe
+import { AdminHome } from './components/AdminHome'
+
+
+
 
 
 function App() {
@@ -30,13 +30,9 @@ function App() {
       <Route path='/login' element={<Login />} />
       <Route path='/committees' element={<Committees/>} />
       <Route path='/viewevents' element={<ViewEvents />} />
-<<<<<<< HEAD
       <Route path="/headhome" element={<HeadHome />} />
       <Route path={'/eventform'} element={<EventForm />} />
-=======
-      <Route path='/eventheadhome' element={<EventHeadHome />} />
-
->>>>>>> 12e8e0689df18df4eeacb11efef899b5b195e2fe
+      <Route path='/adminhome' element={<AdminHome />} />
     </Routes>
   </BrowserRouter>
      

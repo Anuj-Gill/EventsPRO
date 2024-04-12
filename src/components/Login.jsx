@@ -26,13 +26,13 @@ export default function Login() {
             console.log(res)
             if (res.status) {
                 setResponse(res.message);
-                localStorage.setItem("token", res.token);
+                localStorage.setItem("token", `Bearer ${res.token}`);
                 console.log(res.role === "head");
                 if(res.role == "head"){
                     navigate('/headhome');
                 } 
-                else if(res.role == "admin") {
-
+                else if(res.role != "student" && res.role != "head") {
+                    navigate('/adminhome')
                 }
                 else {
                     navigate('/committees')
