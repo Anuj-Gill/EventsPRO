@@ -40,13 +40,31 @@ export function AdminHome() {
         <div>
             <div>
                 <div>Pending Events</div>
-                <div>
-
+                <div className="flex">
+                    {pending.map((event) => {
+                        return(
+                            <div key={event._id}>
+                                <div>{event.committee}</div>
+                                <div>{event.eventName}</div>
+                            </div>
+                        )
+                    }
+                    )}
                 </div>
             </div>
             <div>
                 <div>Approved Events</div>
-                <div></div>
+                <div className="flex">
+                    {approved.map((event) => {
+                        return(
+                            <div key={event._id}>
+                                <div>{event.committee}</div>
+                                <div>{event.eventName}</div>
+                            </div>
+                        )
+                    }
+                    )}
+                </div>
             </div>
         </div>
     )
