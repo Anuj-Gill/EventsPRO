@@ -13,6 +13,7 @@ import ViewEvents from './components/ViewEvents'
 import { HeadHome } from './components/HeadHome'
 import { EventForm } from './components/EventForm'
 import { AdminHome } from './components/AdminHome'
+import { EventReview } from './components/EventReview'
 
 
 
@@ -33,6 +34,7 @@ function App() {
       <Route path="/headhome" element={<HeadHome />} />
       <Route path={'/eventform'} element={<EventForm />} />
       <Route path='/adminhome' element={<AdminHome />} />
+      <Route path='/eventreview' element={<EventReview />} />
     </Routes>
   </BrowserRouter>
      
