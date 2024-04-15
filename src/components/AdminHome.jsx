@@ -12,7 +12,7 @@ export function AdminHome() {
         async function handleFetch() {
             try {
                 const req = await fetch("http://localhost:5000/admin/fetchEvents", {
-                    method: "GET",
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                         "Accept": "application/json",

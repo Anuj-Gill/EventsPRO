@@ -27,15 +27,14 @@ export default function Login() {
             if (res.status) {
                 setResponse(res.message);
                 localStorage.setItem("token", `Bearer ${res.token}`);
-                console.log(res.role === "head");
                 if(res.role == "head"){
-                    navigate('/headhome');
+                    navigate('/headhome',{ state: { data: res } });
                 } 
-                else if(res.role != "student" && res.role != "head") {
-                    navigate('/adminhome')
+                else if(res.role == "Student") {
+                    navigate('/committees',{ state: { data: res } });
                 }
                 else {
-                    navigate('/committees')
+                    navigate('/adminhome',{ state: { data: res } });
                 }
             } else {
                 setResponse(res.message)
