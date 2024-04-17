@@ -6,9 +6,95 @@ import { useNavigate } from 'react-router-dom';
 export function StudentReview() {
 
     const location = useLocation();
-    const navigate = useNavigate();
     const passedData = location.state?.data;
+    const navigate = useNavigate();
+    const [teamCode, setTeamCode] = useState(false);
+    const [status, setStatus] = useState(false);
+    const [joinMode, setJoinMode] = useState(false);
+    const [joinTeamCode, setJoinTeamCode] = useState(false)
+
     console.log(passedData);
+
+    useEffect(() => {
+        async function fetchStatus() {
+            const req = await fetch("http://localhost:5000/event/checkstatus", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({ eventId: passedData._id, teamCode: teamCode })
+            });
+            const res = await req.json();
+            setStatus(res.message);
+            if(res.teamCode){
+                setTeamCode(res.teamCode);
+            }
+            console.log(res);
+
+        }
+        fetchStatus();
+    }, [])
+
+    async function generateRandomCode() {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let code = '';
+        for (let i = 0; i < 10; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            code += characters[randomIndex];
+        }
+        setTeamCode(code);
+    }
+
+    if(teamCode) {
+        handleRegister();
+    }
+
+    console.log("Team code", teamCode);
+
+    function handleRegister() {
+        async function handleSubmit() {
+            try {
+                if (teamCode) {
+                    console.log('team code exists', teamCode)
+                    const req = await fetch("http://localhost:5000/event/registerEvent", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json",
+                            "Authorization": `Bearer ${localStorage.getItem('token')}`
+                        },
+                        body: JSON.stringify({ eventId: passedData._id, teamCode: teamCode })
+                    });
+                    const res = await req.json();
+                    console.log(res);
+                    setStatus(res.message);
+                }
+                else {
+                    console.log(teamCode)
+                    const req = await fetch("http://localhost:5000/event/registerEvent", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json",
+                            "Authorization": `Bearer ${localStorage.getItem('token')}`
+                        },
+                        body: JSON.stringify({ eventId: passedData._id, })
+                    });
+                    const res = await req.json();
+                    console.log(res);
+                    setStatus(res.message);
+                    navigate('/confirmation', { state: { data: passedData } })
+                }
+
+            }
+            catch (error) {
+            }
+        }
+        handleSubmit();
+    }
+
 
     return (
         <div className="container mx-auto max-w-4xl  p-8 bg-white rounded-lg shadow-xl">
@@ -31,18 +117,40 @@ export function StudentReview() {
                 <p className="mb-2">Time: {passedData.time}</p>
                 <p className="mb-2">Venue: {passedData.venue}</p>
                 <p className="mb-2">Type: {passedData.type}</p>
-                <p className="mb-2">WhatsApp Group Link: <a className='text-blue-500' href={passedData.whatsappGroupLink} target='_blank'>{passedData.whatsappGroupLink}</a></p>
                 <p className="mb-2">Proposal Link: <a className='text-blue-500' href={passedData.proposalLink} target='_blank'>{passedData.proposalLink}</a></p>
             </div>
 
-            {status == "Approved" ? 
-            <div></div>
-            :
-            <div className='flex justify-around mt-10 mb-20'>
-                <button onClick={() => navigate("/registerform", {state: {data: passedData}})} className='p-2 bg-green-400 text-white'>Register</button>
 
+            <div>
+                {(status) ?
+                    <div>
+                        <button onClick={() => navigate('/confirmation', { state: { data: passedData } })}>View QR</button>
+                        <h3>Team Code:{teamCode} (Share this team code with you friends to let them join your team!)</h3>
+                    </div>
+                    :
+                    <div>
+                        {passedData?.type === "team" ? (
+                            <div className="flex justify-between">
+                                <button className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600" onClick={generateRandomCode}>Create Team</button>
+                                <button className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600" onClick={() => setJoinMode(true)}>Join a Team</button>
+                            </div>
+                        ) : (
+                            <button className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600" onClick={handleRegister}>Register</button>
+                        )}
+                    </div>
+                }
+                {joinMode ? <div className='mt-10 text-center'>
+                    <input type='text' required placeholder='Enter Team Code' className='border-2 border-black rounded-md' onChange={(e) => setJoinTeamCode(e.target.value)}></input>
+                    <button onClick={() => {
+                        setTeamCode(joinTeamCode);
+                        handleRegister
+                    }
+                        }>Join</button>
+                </div>
+                    :
+                    <div></div>}
             </div>
-            }
+
         </div>
     );
 }

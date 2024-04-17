@@ -15,8 +15,9 @@ import { EventForm } from './components/EventForm'
 import { AdminHome } from './components/AdminHome'
 import { EventReview } from './components/EventReview'
 import { StudentReview } from './components/StudentReview'
-import { RegisterForm } from './components/RegisterForm'
-
+import { Confirmation } from './components/Confirmation'
+import { HeadEvents } from './components/HeadEvents'
+import { HeadReview } from './components/HeadReview'
 
 
 
@@ -38,7 +39,9 @@ function App() {
       <Route path='/adminhome' element={<AdminHome />} />
       <Route path='/eventreview' element={<EventReview />} />
       <Route path='/studentreview' element={<StudentReview />} />
-      <Route path='/registerform' element={<RegisterForm />} />
+      <Route path='/confirmation' element={<Confirmation />} />
+      <Route path='/headevents' element={<HeadEvents />} />
+      <Route path='/headreview' element={<HeadReview />} />
     </Routes>
   </BrowserRouter>
      

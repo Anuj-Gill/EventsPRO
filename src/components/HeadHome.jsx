@@ -18,16 +18,18 @@ export function HeadHome() {
                 <div>
                     <Navbar />
                     <div className='mt-16'>
-                        <h2>Hello Head</h2>
-                        <div>
-                            <button onClick={() => navigate("/eventform")}>Create Event</button>
-                            <button>Manage Events</button>
-                            <button onClick={() => navigate('/committees')}>Register</button>
+                        <h2 className='text-2xl font-bold'>Hello Head</h2>
+                        <div className='mt-4'>
+                            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded' onClick={() => navigate("/eventform")}>Create Event</button>
+                            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded' onClick={() => navigate('/headevents')}>Manage Events</button>
+                            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => navigate('/committees')}>Register</button>
                         </div>
                     </div>
                 </div>
                 :
-                <div><button onClick={() => navigate('/login')}>Log In</button> First</div>
+                <div className='mt-16'>
+                    <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => navigate('/login')}>Log In</button> First
+                </div>
             }
         </div>
     )

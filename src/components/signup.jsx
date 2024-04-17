@@ -11,6 +11,7 @@ export default function SignUp() {
         gender: "Male",
         email: "",
         password: "",
+        mobile: ''
     })
     const [response, setResponse] = useState('');
     const [signupSuccess, setSignupSuccess] = useState(false);
@@ -145,6 +146,19 @@ export default function SignUp() {
                                 id="email"
                                 placeholder="Your Email"
                                 onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
+                                className="flex w-5/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-10"
+                                required={true}
+                            />
+                        </div>
+                        <div className="mb-2">
+                            <label htmlFor="email" className="flex text-white font-bold mb-3">
+                                Mobile Number
+                            </label>
+                            <input
+                                type="mobile"
+                                id="mobile"
+                                placeholder="Mobile Number"
+                                onChange={(e) => setSignupData({ ...signupData, mobile: e.target.value })}
                                 className="flex w-5/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-10"
                                 required={true}
                             />
