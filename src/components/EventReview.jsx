@@ -71,7 +71,6 @@ export function EventReview() {
             }
         }
         handleStatusUpdate();
-
     }, [status])
 
 

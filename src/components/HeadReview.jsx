@@ -7,14 +7,42 @@ export function HeadReview() {
     const location = useLocation();
     const passedData = location.state?.data;
     const navigate = useNavigate();
-    console.log(passedData);
+    console.log(passedData._id);
+    const [popup, setPopup] = useState(false)
 
 
 
     useEffect(() => {
 
 
-    }, [])
+    }, []);
+
+    function handleDelete() {
+        setPopup(true)
+        async function handleDeleteUpdate() {
+            try {
+                const req = await fetch("http://localhost:5000/head/deleteevent", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "Authorization": `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify({ eventId: passedData._id })
+                })
+                const res = await req.json();
+                console.log(res);
+                navigate('/headevents')
+            }
+            catch (error) {
+
+            }
+        }
+
+        handleDeleteUpdate();
+    }
+
+   
 
     return (
         <div className="container mx-auto max-w-4xl  p-8 bg-white rounded-lg shadow-xl">
@@ -47,11 +75,33 @@ export function HeadReview() {
             {passedData.status == "Approved" ?
                 <div className='flex justify-between'>
                     <button onClick={() => navigate('/eventdashboard', { state: { data: passedData } })}>Event Dashboard</button>
-                    <button>Delete Event</button>
+                    <button onClick={() => navigate('/eventreport' , { state: { data: passedData } })}>Generate Report</button>
+                    <button onClick={() => setPopup(true)}>Delete Event</button>
                 </div>
                 :
                 <div></div>
             }
+
+            {popup && (
+                <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50" style={{ transition: 'opacity 0.3s ease-in-out' }}>
+                    <div className="bg-white p-4 rounded-lg shadow-lg flex flex-col">
+                        <div>
+                            Are you sure you want to delete this event
+                        </div>
+                        <div className='flex justify-between mt-5'>
+                            <div>
+                                <button className='bg-red-400 text-white p-2 rounded-lg' onClick={handleDelete}>Delete Event</button>
+
+                            </div>
+                            <div>
+                                <button className='bg-blue-500 p-2 rounded-lg text-white' onClick={() => setPopup(false)}>No</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

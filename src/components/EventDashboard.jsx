@@ -65,7 +65,7 @@ export function EventDashboard() {
     
           <div className="overflow-x-auto"> 
             <table className="w-full table-auto"> 
-              <thead>
+              <thead className='text-left'>
                 <tr>
                   <th className="px-4 py-2">Name</th> 
                   <th className="px-4 py-2">Roll Number</th> 

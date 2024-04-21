@@ -19,6 +19,7 @@ import { Confirmation } from './components/Confirmation'
 import { HeadEvents } from './components/HeadEvents'
 import { HeadReview } from './components/HeadReview'
 import { EventDashboard } from './components/EventDashboard'
+import { EventReport } from './components/EventReport'
 
 
 
@@ -44,6 +45,7 @@ function App() {
       <Route path='/headevents' element={<HeadEvents />} />
       <Route path='/headreview' element={<HeadReview />} />
       <Route path='/eventdashboard' element={<EventDashboard />} />
+      <Route path='/eventreport' element={<EventReport />} />
     </Routes>
   </BrowserRouter>
      
