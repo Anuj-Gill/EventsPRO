@@ -1,5 +1,5 @@
 import bgImage from '../assets/bg.png';
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 
 export default function SignUp() {
@@ -34,7 +34,7 @@ export default function SignUp() {
             if (res.success) {
                 setSignupSuccess(true);
             }
-            
+
         }
         catch (error) {
             console.log(error)
@@ -42,25 +42,24 @@ export default function SignUp() {
     }
     console.log(signupData);
 
-   
+
 
 
     return (
         <div>
 
-            <div className="grid grid-cols-4 h-screen" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+            <div className="flex flex-col items-center justify-around h-screen" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
                 {/* Left Column with Logo and Tagline */}
-                <div className="col-span-1 flex flex-col items-center justify-center transform rotate-[-90deg] pt-0 pb-0">
+                <div className="col-span-1 flex flex-col items-center justify-center pt-0 pb-0">
                     <p className="text-7xl font-bold text-orange-500 pt-0 pb-0">EventsPRO</p>
                     <p className="text-xl text-center text-white">
                         Organize, promote, and execute events within our college community.
                     </p>
                 </div>
-    
+
                 {/* Right Column with Signup Form */}
-    
-                <form className="w-full" onSubmit={handleSignup}>
-                    <div className="rounded-tl-[50px] bg-slate-400 rounded-bl-[50px] col-span-3  shadow-md p-8 text-center backdrop-blur-lg bg-opacity-20" style={{ boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}>
+                <form className="w-3/5" onSubmit={handleSignup}>
+                    <div className="rounded-3xl bg-slate-400 col-span-3  shadow-md p-8 text-center backdrop-blur-lg bg-opacity-20" style={{ boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)' }}>
                         <h2 className="flex text-4xl font-bold mb-10 text-white">Create Account</h2>
                         <div className="text-center">
                             <div className="mb-2">
@@ -89,6 +88,9 @@ export default function SignUp() {
                                 required={true}
                             />
                         </div>
+
+                        <div className='flex w-full justify-center'>
+
                         <div className="mb-2">
                             <label htmlFor="name" className="flex text-white font-bold mb-3">
                                 Branch
@@ -121,7 +123,8 @@ export default function SignUp() {
                                 <option value="TE">TE</option>
                                 <option value="BE">BE</option>
                             </select>
-    
+
+                        </div>
                         </div>
                         <div className="mb-2">
                             <label htmlFor="name" className="flex text-white font-bold mb-3">
@@ -176,28 +179,28 @@ export default function SignUp() {
                                 required={true}
                             />
                         </div>
-                    </div>
-                    <div className="text-center">
-                        <button
-                            type="submit"
-                            className="flex w-5/6 bg-red-600 text-white py-2 rounded-md transition-colors duration-300 mb-3 justify-around"
-                        >
-                            Create Account
-                        </button>
+                        <div className="text-center">
+                            <button
+                                type="submit"
+                                className="flex w-5/6 bg-red-600 text-white py-2 rounded-md transition-colors duration-300 mb-3 justify-around"
+                            >
+                                Create Account
+                            </button>
+                        </div>
                     </div>
                     <p className="flex mt-4 text-center text-white">
                         Already have an account?<a href="#" className="text-white ml-2 hover:underline" onClick={() => navigate('/login')}>Login</a>
                     </p>
-    
-    
+
+
                 </form >
             </div >
-                <div className='text-black'>{response}</div>
-                {
-                    signupSuccess && (
-                        <button onClick={() => navigate('/login')}>Login</button>
-                    )
-                }
+            <div className='text-black'>{response}</div>
+            {
+                signupSuccess && (
+                    <button onClick={() => navigate('/login')}>Login</button>
+                )
+            }
         </div>
     );
 }

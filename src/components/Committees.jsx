@@ -1,5 +1,7 @@
 import { Navbar } from './Navbar';
 import bgImage from '../assets/bg.png';
+import CSI from '../assets/CSI_Logo.jpeg';
+import ITSA from '../assets/ITSA_Logo.jpeg';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CommitteesName } from './CommitteesName';
@@ -39,8 +41,9 @@ export default function Committees() {
 
 
             <div className="flex flex-wrap justify-between mb-8"> {/* Flex wrapper for rows with space between each button */}
-            <CommitteesName name={"CSI"} logo={""}/>
-            <CommitteesName name={"ITSA"} logo={""}/>
+            <CommitteesName name={"CSI"} logo={CSI}/>
+            <CommitteesName name={"ITSA"} logo={ITSA}/>
+            <img></img>
             </div>
           </div>
         </div> :

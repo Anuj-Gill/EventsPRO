@@ -18,7 +18,8 @@ export function EventReport() {
                         "Accept": "application/pdf",
                     },
                     body: JSON.stringify({
-                        "template": { "name": "EventReport", "recipe": "chrome-pdf" },
+                        "template": { "name": "EventReport", "recipe": "phantom-pdf", "engine": "handlebars",
+                         },
                         "data": {
                             "title": passedData.eventName,
                             "objective": "Organinzing a DSA coding competition",
@@ -30,7 +31,7 @@ export function EventReport() {
                             "student_strength": "49",
                             "event_summary": "THe event was a great success"
                         },
-                        "options": { "reportName": "EventReport"}
+                        "options": { "reportName": `${passedData.eventName}-${passedData.committee}-Report`}
                     })
                 });
                 console.log(req);

@@ -24,6 +24,7 @@ import { EventReport } from './components/EventReport'
 
 
 
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -46,6 +47,7 @@ function App() {
       <Route path='/headreview' element={<HeadReview />} />
       <Route path='/eventdashboard' element={<EventDashboard />} />
       <Route path='/eventreport' element={<EventReport />} />
+
     </Routes>
   </BrowserRouter>
      
