@@ -1,7 +1,5 @@
 import { Navbar } from './Navbar';
 import bgImage from '../assets/bg.png';
-import CSI from '../assets/CSI_Logo.jpeg';
-import ITSA from '../assets/ITSA_Logo.jpeg';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CommitteesName } from './CommitteesName';
@@ -25,25 +23,22 @@ export default function Committees() {
     <div>
       {loggedIn ?
         <div
-          className="flex flex-col items-center justify-start min-h-screen pt-12"
-          style={{
-            backgroundImage: `url(${bgImage})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-          }}
+          className="flex flex-col items-center justify-start min-h-screen pt-8"
         >
           <Navbar />
           <div className="container mx-auto mt-16 w-5/6 px-4">
 
-            <div className="mb-10 mt-12">
+            <div className="mb-24">
               <h1 className="text-white text-6xl font-bold">Hello, {passedData.name}</h1>
             </div>
 
-
-            <div className="flex flex-wrap justify-between mb-8"> {/* Flex wrapper for rows with space between each button */}
-            <CommitteesName name={"CSI"} logo={CSI}/>
-            <CommitteesName name={"ITSA"} logo={ITSA}/>
-            <img></img>
+            <div className="grid grid-cols-3 gap-4 -mr-10 ml-10 mb-8"> {/* Flex wrapper for rows with space between each button */}
+              <CommitteesName name={"CSI"} logo={'CSI'} />
+              <CommitteesName name={"ITSA"} logo={'ITSA'} />
+              <CommitteesName name={"GDSC"} logo={'GDSC'} />
+              <CommitteesName name={"IEEE"} logo={'IEEE'} />
+              <CommitteesName name={"CESA"} logo={'CESA'} />
+              <CommitteesName name={"ACM"} logo={'ACM'} />
             </div>
           </div>
         </div> :

@@ -18,7 +18,7 @@ export function Navbar() {
 
     return (
         <div>
-                <div className="flex border-black fixed right-0 left-0 top-0 justify-between shadow-md h-12  index-2 backdrop-blur-md p-3 items-center">
+                <div className="flex border-black fixed right-0 left-0 top-0 justify-between shadow-md h-12  index-2 backdrop-blur-md p-3 items-center z-100">
                     <div className="  text-[#FF8C00] font-bold text-2xl pl-3 pt-4">
                         EventsPRO
                     </div>

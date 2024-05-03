@@ -25,11 +25,6 @@ export function Home() {
         <div
           className="flex flex-col items-center 
                      justify-center min-h-screen pt-12"
-          style={{
-            backgroundImage: `url(${bgImage})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-          }}
         >
           <Navbar />
           <div className='mt-10 flex flex-col items-center'>

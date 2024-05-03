@@ -23,13 +23,13 @@ export default function Login() {
                 body: JSON.stringify(loginData)
             });
             const res = await req.json();
-            console.log(res);
+            setResponse(res.message)
             if (res.status) {
                 setResponse(res.message);
                 localStorage.setItem("token", `Bearer ${res.token}`);
                 if (res.role === "head") {
                     navigate('/headhome', { state: { data: res } });
-                } 
+                }
                 else if (res.role === "Student") {
                     navigate('/committees', { state: { data: res } });
                 }
@@ -46,7 +46,7 @@ export default function Login() {
     };
 
     return (
-        <div className=" flex flex-col items-center justify-around h-screen" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+        <div className=" flex flex-col items-center justify-around min-h-screen" >
             {/* Left Column with Logo and Tagline */}
             <div className="flex flex-col items-center justify-center transform -mb-20">
                 <p className="text-7xl font-bold text-orange-500 pt-0 pb-0">EventsPRO</p>
@@ -66,6 +66,7 @@ export default function Login() {
                             </label>
                             <input
                                 type="email"
+                                required
                                 id="email"
                                 placeholder="Your Email"
                                 onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
@@ -78,6 +79,7 @@ export default function Login() {
                             </label>
                             <input
                                 type="password"
+                                required
                                 id="password"
                                 placeholder="Your Password"
                                 onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
@@ -92,6 +94,13 @@ export default function Login() {
                         >
                             Login
                         </button>
+
+                    </div>
+                    <div>
+                        <p className='text-white mt-6 text-lg'>{response}</p>
+                    </div>
+                    <div>
+                        <p className='text-white text-lg mt-6'>New to EventsPRO? <button className='bg-red-600 text-white py-2 px-4 rounded-md transition-colors duration-300 ml-3' onClick={() => navigate('/signup')}>Join now</button></p>
                     </div>
                 </div>
             </form>

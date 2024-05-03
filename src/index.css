@@ -57,7 +57,7 @@
     
   }
   50% {
-    background-color: rgba(255, 255, 255, 0.2); /* Adjust glow color and opacity */
+    background-color: rgba(255, 255, 255); /* Adjust glow color and opacity */
     color: rgba(0, 0, 0, 1); 
     
   }

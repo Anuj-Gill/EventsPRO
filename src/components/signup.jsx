@@ -41,8 +41,8 @@ export default function SignUp() {
     }
 
     return (
-        <div className="overflow-hidden"> {/* Added overflow-hidden to prevent scrolling */}
-            <div className="grid grid-cols-4 h-screen" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundRepeat: 'no-repeat' }}> {/* Added backgroundAttachment: 'fixed' */}
+        <div className="">
+            <div className="flex flex-col justify-around min-h-screen"> 
                 {/* Left Column with Logo and Tagline */}
                 <div className="col-span-1 flex flex-col items-center justify-center pt-0 pb-0">
                     <p className="text-7xl font-bold text-orange-500 pt-0 pb-0">EventsPRO</p>
@@ -177,7 +177,7 @@ export default function SignUp() {
                         </button>
                     </div>
                         <p className="text-white">
-                            Already have an account ? <a href="#" className="text-white hover:underline" onClick={() => navigate('/login')}>Login</a>
+                            Already have an account ? <a href="#" className="bg-red-600 text-white py-2 px-4 rounded-md transition-colors duration-300" onClick={() => navigate('/login')}>Login</a>
                         </p>
                     </div>
                 </form>

@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { MainLoadingScreen } from './components/MainLoadingScreen'
 import { Home } from './components/Home'
+import bgImage from './assets/bg.png';
 
 import {Routes, Route,BrowserRouter} from 'react-router-dom'
 import Signup from './components/signup'
@@ -30,6 +31,7 @@ function App() {
 
   return (
   <BrowserRouter>
+  <div className='bg-[url("./assets/bg.png")] bg-cover bg-center bg-no-repeat'>
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/home' element={<Home />} />
@@ -49,6 +51,7 @@ function App() {
       <Route path='/eventreport' element={<EventReport />} />
 
     </Routes>
+  </div>
   </BrowserRouter>
      
 
