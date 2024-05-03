@@ -105,7 +105,7 @@ export function StudentReview() {
         <>
         <Navbar />
         <div className='min-h-screen flex justify-center items-center bg-cover bg-no-repeat bg-center '>
-            <div className='flex justify-center w-full'>
+            <div className='flex justify-center w-full min-h-screen mt-20'>
                 <div className="container mr-5 w-2/6 h-5/6 p-8 bg-white rounded-lg shadow-xl">
                     <div className='flex justify-center'>
                         <div className="flex flex-col items-center justify-center">
@@ -134,7 +134,7 @@ export function StudentReview() {
 
                     <div>
                         {(status) ?
-                            <div>
+                            <div className="">
                                 <button onClick={() => navigate('/confirmation', { state: { data: passedData } })}>View QR</button>
                                 {teamCode && <div>
                                     <h3>Team Code:{teamCode} (Share this team code with you friends to let them join your team!)</h3>
