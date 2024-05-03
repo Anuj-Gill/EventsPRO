@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 export function HeadEvents() {
 
     const [pending, setPending] = useState([]);
