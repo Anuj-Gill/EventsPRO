@@ -134,7 +134,7 @@ export function StudentReview() {
 
                     <div>
                         {(status) ?
-                            <div className='flex justify-center'>
+                            <div className='flex justify-center items-center gap-x-4'>
                                 <button className="mt-5 px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600" onClick={() => navigate('/confirmation', { state: { data: passedData } })}>View QR</button>
                                 {teamCode && <div>
                                     <h3>Team Code:{teamCode} (Share this team code with you friends to let them join your team!)</h3>
