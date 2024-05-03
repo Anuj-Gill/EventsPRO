@@ -1,6 +1,6 @@
 import bgImage from '../assets/bg.png';
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
@@ -8,7 +8,7 @@ export default function Login() {
     const [loginData, setLoginData] = useState({
         email: "",
         password: ""
-    })
+    });
     const [response, setResponse] = useState('');
 
     const handleLogin = async (e) => {
@@ -21,29 +21,29 @@ export default function Login() {
                     "Accept": "application/json"
                 },
                 body: JSON.stringify(loginData)
-            })
+            });
             const res = await req.json();
-            console.log(res)
+            console.log(res);
             if (res.status) {
                 setResponse(res.message);
                 localStorage.setItem("token", `Bearer ${res.token}`);
-                if(res.role == "head"){
-                    navigate('/headhome',{ state: { data: res } });
+                if (res.role === "head") {
+                    navigate('/headhome', { state: { data: res } });
                 } 
-                else if(res.role == "Student") {
-                    navigate('/committees',{ state: { data: res } });
+                else if (res.role === "Student") {
+                    navigate('/committees', { state: { data: res } });
                 }
                 else {
-                    navigate('/adminhome',{ state: { data: res } });
+                    navigate('/adminhome', { state: { data: res } });
                 }
             } else {
-                setResponse(res.message)
+                setResponse(res.message);
             }
         }
         catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    };
 
     return (
         <div className=" flex flex-col items-center justify-around h-screen" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
@@ -56,9 +56,9 @@ export default function Login() {
             </div>
 
             {/* Right Column with login Form */}
-            <form onSubmit={handleLogin}>
-                <div className=" bg-slate-400 rounded-3xl shadow-md p-8 text-center backdrop-blur-lg bg-opacity-20 " style={{ boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)' }}>
-                    <h2 className="text-4xl font-bold mb-10 text-white">Hey, Welcome back!</h2>
+            <form onSubmit={handleLogin} className="col-span-3 flex justify-center items-center"> {/* Added flex classes */}
+                <div className="rounded-[50px] bg-slate-400 shadow-md p-8 text-center backdrop-blur-lg bg-opacity-20 w-full max-w-md mx-auto"> {/* Adjusted max-width */}
+                    <h2 className="text-4xl font-bold mb-10 text-white">Hey, Welcome back!</h2> {/* Centered h2 */}
                     <div className="text-center">
                         <div className="flex flex-col items-start">
                             <label htmlFor="email" className="text-white font-bold mb-4">
@@ -69,11 +69,11 @@ export default function Login() {
                                 id="email"
                                 placeholder="Your Email"
                                 onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
-                                className="flex w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-6" // Reduced margin-bottom
+                                className="flex w-5/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-4" // Reduced width and margin-bottom
                             />
                         </div>
-                        <div className="flex flex-col items-start mb-8">
-                            <label htmlFor="password" className="text-white font-bold mb-4">
+                        <div className="mb-6">
+                            <label htmlFor="password" className="flex text-white font-bold mb-4">
                                 Password
                             </label>
                             <input
@@ -81,14 +81,14 @@ export default function Login() {
                                 id="password"
                                 placeholder="Your Password"
                                 onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
-                                className="flex w-4/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-8" // Increased margin-bottom
+                                className="flex w-5/6 px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 mb-6" // Reduced width and margin-bottom
                             />
                         </div>
                     </div>
-                    <div className="text-center mt-12">
+                    <div className="flex justify-center items-center mt-8"> {/* Centered button div */}
                         <button
                             type="submit"
-                            className="flex w-4/6 bg-red-600 text-white py-2 rounded-md transition-colors duration-300 justify-around"
+                            className="bg-red-600 text-white py-2 px-4 rounded-md transition-colors duration-300" // Adjusted padding for better aesthetics
                         >
                             Login
                         </button>
