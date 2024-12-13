@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+model User {
+  id                 Int           @id @default(autoincrement())
+  refreshToken       String?
+  name               String
+  email              String        @unique
+  password           String?
+  roleId             Int
+  gender             String?
+  verificationStatus Boolean       @default(false)
+  profilePic         String?
+  academicInfo       AcademicInfo?
+  feedBack           FeedBack?
+  participants       Participant[]
+  role               Role          @relation(fields: [roleId], references: [id], onDelete: Cascade)
+}
+
+model Role {
+  id       Int     @id @default(autoincrement())
+  roleName String
+  roleCode String?
+  users    User[]
+}
+
+model Committee {
+  id            Int                     @id @default(autoincrement())
+  committeeName String
+  description   String
+  committeeLogo String?
+  nickName      String
+  socialHandles CommitteeSocialHandle[]
+  events        Event[]
+  pubs          Publicity[]
+}
+
+model CommitteeSocialHandle {
+  id          Int       @id @default(autoincrement())
+  committeeId Int
+  platform    String
+  handle      String
+  committee   Committee @relation(fields: [committeeId], references: [id], onDelete: Cascade)
+}
+
+model Publicity {
+  id          Int       @id @default(autoincrement())
+  committeeId Int
+  name        String
+  contact     String
+  committee   Committee @relation(fields: [committeeId], references: [id], onDelete: Cascade)
+}
+
+model Event {
+  id           Int           @id @default(autoincrement())
+  eventName    String
+  eventPoster  String
+  dateTime     DateTime
+  venue        String
+  about        String
+  isOnline     Boolean       @default(false)
+  prize        String?
+  entryFee     Decimal?
+  team         Boolean       @default(false)
+  committeeId  Int
+  committee    Committee     @relation(fields: [committeeId], references: [id], onDelete: Cascade)
+  participants Participant[]
+}
+
+model Participant {
+  id               Int      @id @default(autoincrement())
+  userId           Int
+  eventId          Int
+  registrationDate DateTime
+  teamCode         String?
+  hasAttended      Boolean  @default(false)
+  qrCodeToken      String   @unique
+  event            Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model AcademicInfo {
+  id         Int    @id @default(autoincrement())
+  userId     Int    @unique
+  department String
+  year       Int
+  division   String
+  rollNo     String
+  user       User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model FeedBack {
+  id      Int     @id @default(autoincrement())
+  userId  Int     @unique
+  status  Boolean @default(false)
+  rating  Int
+  comment String
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
