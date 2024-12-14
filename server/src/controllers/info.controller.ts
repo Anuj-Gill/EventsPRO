@@ -6,6 +6,7 @@ import {
   updateUserDataService,
   addFeedbackService,
   getFeedbacksService,
+  getUserStatsService
 } from "../services/userService";
 import { AcademicInfoRequestBody } from "../interfaces/authInterfaces";
 
@@ -118,6 +119,29 @@ export async function getFeedbacks(
     }
 
     res.status(200).json({ message: "Feedbakcs found", feedbacks });
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function getUserStats(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  try {
+    const { jwtPayload } = req.body;
+    const user = await findUserByEmail(jwtPayload?.email);
+
+    if (!user) {
+      res.status(404).json({ message: "User not found" });
+      return;
+    }
+
+    const userStats = await getUserStatsService(Number(user.id));
+    const totalEvents = await prisma.event.count();
+
+    res.status(200).json({ message: "User stats", userStats, totalEvents })
   } catch (error) {
     next(error);
   }

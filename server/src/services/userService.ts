@@ -140,3 +140,16 @@ export async function getFeedbacksService() {
     },
   });
 }
+
+
+export async function getUserStatsService(userId: number) {
+  return await prisma.participant.findMany({
+    where: {
+      userId
+    },
+    include: {
+      user: true,
+      event: true
+    },
+  });
+}
