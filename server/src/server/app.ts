@@ -11,7 +11,29 @@ import { error } from "console";
 
 export default function ExpressApp(): Application {
   const app: Application = express();
-  app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+  const allowedOrigins = [
+    "http://localhost:5173", // Local development
+    "https://eventspro.tech", // Production
+    "http://localhost:3000", // Another allowed origin
+  ];
+
+  app.use(
+    cors({
+      origin: (origin, callback) => {
+        // Allow requests with no origin (like mobile apps, Postman, etc.)
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.includes(origin)) {
+          // If the origin is in the allowedOrigins list, allow it
+          callback(null, true);
+        } else {
+          // If the origin is not in the allowedOrigins list, reject it
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
+      credentials: true, // Allow credentials
+    })
+  );
   app.use(express.json({ limit: "3mb" }));
 
   app.use("/auth", authRoutes);
