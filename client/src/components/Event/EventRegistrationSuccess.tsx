@@ -199,7 +199,7 @@ const EventRegistrationSuccess: React.FC<EventRegistrationSuccessProps> = ({
           desktopStrokeWidth: 5,
           duration: 10
         }}
-        className="min-h-screen flex items-center justify-center px-4 -mt-14"
+        className="min-h-screen flex items-center justify-center px-4 -mt-4"
       >
         <div className="max-w-5xl w-full mx-auto p-4 relative z-20">
           {hasTeamDetails ? (

@@ -11,6 +11,8 @@ interface EventDetails {
   prize: string;
   entryFee: string;
   team: boolean;
+  message?: string;  // Mark as optional
+  pubs?: string[];
 }
 
 export const createEvent = async (eventDetails: EventDetails) => {
@@ -65,7 +67,7 @@ export const getALlEvents = async () => {
 }
 
 
-interface EventDetails {
+interface EventDetailsWithPubs {
   eventDetails?: any,
   message: string,
   pubs: any
@@ -73,7 +75,7 @@ interface EventDetails {
 
 export const getEventDetails = async (eventName: string) => {
   try {
-    const response = await axiosInstance.post<EventDetails>("/event/details", { eventName });
+    const response = await axiosInstance.post<EventDetailsWithPubs>("/event/details", { eventName });
     return response;
   } catch (error) {
     console.error("Error fetching event details", error);

@@ -60,7 +60,6 @@ const Footer = () => {
           <p className='text-lg mb-2 text-center text-white'>follow us</p>
           <FloatingDock
             items={socialLinks}
-            className="z-50"
           />
         </div>
 

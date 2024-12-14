@@ -12,7 +12,7 @@ export function AnimatedTestimonialsDemo() {
       const response = await getFeedbacksApi();
       console.log(response);
       if (response.status == 200) {
-        setTestimonials(response.data.feedbacks);
+        setTestimonials(response?.data?.feedbacks);
       }
     } catch (error) {
       console.error(error);

@@ -3,6 +3,7 @@ import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { useSearchParams } from "react-router-dom";
 import { getParticipants } from "../api/eventApi.ts";
+import { ChartOptions } from 'chart.js';
 
 // Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -71,7 +72,7 @@ const EventStats: React.FC = () => {
     ],
   };
 
-  const pieOptions = {
+  const pieOptions: ChartOptions<'pie'> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {

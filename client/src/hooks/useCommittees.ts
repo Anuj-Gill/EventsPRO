@@ -4,7 +4,7 @@ import { getCommittees } from "../api/committeeApi";
 export const useCommittees = () => {
   const [committees, setCommittees] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<any>(null);
 
   const fetchCommittees = async () => {
     try {

@@ -45,3 +45,14 @@ export const getFeedbacksApi = async () => {
     throw error;
   }
 }
+
+
+export const getUserStatsApi = async () => {
+  try {
+    const response = await axiosInstance.get("/user/stats");
+    return response;
+  } catch (error) {
+    console.error("Error fetching User stats!", error);
+    throw error;
+  }
+}

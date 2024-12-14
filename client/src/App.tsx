@@ -27,6 +27,7 @@ import UpdateEvent from './pages/UpdateEvents';
 import EventStats from './pages/EventStats';
 import UserProfile from './pages/UserProfile';
 import SocialHandles from './pages/SocialHandles';
+import UserStats from './pages/UserStats';
 import { RegistrationSuccessPage } from './pages/RegistrationSuccessPage';
 
 // ProtectedRoute component
@@ -197,6 +198,15 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <UserProfile />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/user/stats"
+                element={
+                  <ProtectedRoute>
+                    <UserStats />
                   </ProtectedRoute>
                 }
               />

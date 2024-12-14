@@ -20,6 +20,7 @@ const SignupPage: React.FC = () => {
   const [toast, setToast] = useState({ isVisible: false, message: "", type: "success" });
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
+
   const loggedIn = useRecoilValue(loggedinStatusState);
   const navigate = useNavigate();
 

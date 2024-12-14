@@ -12,7 +12,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  console.log(userImageUrl);
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };

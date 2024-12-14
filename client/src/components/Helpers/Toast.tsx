@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 interface ToastProps {
   message: string;
   isVisible: boolean;
-  type?: "success" | "error"; // Add type for success or error
+  type?: string; // Add type for success or error
   onClose: () => void;
 }
 

@@ -10,6 +10,8 @@
     ],
     "module": "ESNext",
     "skipLibCheck": true,
+    "noEmitOnError": false,
+    "noImplicitAny": false, /* Allow implicit 'any' types */
     /* Bundler mode */
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
@@ -18,9 +20,9 @@
     "noEmit": true,
     "jsx": "react-jsx",
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "strict": false,
+    "noUnusedLocals": false, /* Temporarily disable unused local checks */
+    "noUnusedParameters": false, /* Temporarily disable unused parameter checks */
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },

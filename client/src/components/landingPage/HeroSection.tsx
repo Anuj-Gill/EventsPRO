@@ -51,7 +51,7 @@ const HeroSection = () => {
       >
         <div className="relative w-48 h-48 lg:w-72 lg:h-72  mt-20 md:mt-0 animate-rock ">
           <img
-            src="/src/assets/rocket.png" // Replace with your actual image path
+            src="/assets/rocket.png" // Replace with your actual image path
             alt="Rocket"
             className="w-full h-full"
           />
