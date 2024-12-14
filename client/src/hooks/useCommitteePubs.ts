@@ -10,7 +10,6 @@ const useCommitteePubs = () => {
     try {
       setLoading(true);
       const response = await getCommitteePubs();
-      console.log(response);
       if (response.data.pubs) {
         setPubs(response.data.pubs);
       }

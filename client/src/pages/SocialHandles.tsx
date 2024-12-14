@@ -66,9 +66,7 @@ const SocialHandles: React.FC = () => {
     const fetchSocialHandles = async () => {
       setIsLoading(true);
       try {
-        console.log("fetching sc from db");
         const response = await getSocialHandlesApi();
-        console.log(response);
         setSocialHandles(response.data.socialHandles);
       } catch (err) {
         setError('Failed to fetch social handles');

@@ -37,12 +37,10 @@ const GoogleSignInButton: React.FC<GoogleSignInButtonProps> = ({ onSuccess }) =>
         const { status, message } = event.data;
         popup?.close();
         if (status === 200) {
-          console.log(event.data);
           setAcadInfo(event.data.academicInfo);
           setVerifyStatus(event.data.verificationStatus);
           localStorage.setItem('token', event.data.token);
           setLoggedIn(true);
-          console.log(event.data.profilePic);
           setProfilePic(event.data.profilePic);
           setFeedBack(event.data.feedBack ? true : false);
           if (event.data.academicInfo) {

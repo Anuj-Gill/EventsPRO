@@ -68,19 +68,16 @@ const CommitteeDashboard: React.FC = () => {
     }
   ];
 
-  console.log(denied);
 
   useEffect(() => {
     const fetchCommitteeInfo = async () => {
       try {
         const response = await getCommitteeInfo();
-        console.log(response.status);
         setInfo(response.data.info);
         setLoading(false);
 
       } catch (error) {
         if (error.status == 403) {
-          console.log("i am here");
           setDenied(true);
         }
         console.error(error);

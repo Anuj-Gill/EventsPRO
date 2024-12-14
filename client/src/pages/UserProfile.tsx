@@ -67,7 +67,6 @@ const UserProfile: React.FC = () => {
 
         // Check base64 string size before updating form data
         const fileSizeInKb = getEstimatedFileSizeFromBase64(base64String);
-        console.log(fileSizeInKb);
         if (fileSizeInKb > 3000) { // Check for 5MB limit
           setToast({ isVisible: true, message: "Image exceeds 3MB limit!", type: "error" });
         } else {

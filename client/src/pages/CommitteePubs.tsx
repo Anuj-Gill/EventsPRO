@@ -130,13 +130,11 @@ const CommitteePubs: React.FC = () => {
                   {isHeadRole && (
                     <td className="px-6 py-4 text-right text-sm">
                       <button
-                        onClick={() => console.log("Edit pub", pub.id)}
                         className="text-blue-500 hover:text-blue-400 mr-4"
                       >
                         <Edit className="inline-block w-5 h-5" />
                       </button>
                       <button
-                        onClick={() => console.log("Delete pub", pub.id)}
                         className="text-red-500 hover:text-red-400"
                       >
                         <Trash2 className="inline-block w-5 h-5" />

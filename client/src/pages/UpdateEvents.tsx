@@ -47,9 +47,7 @@ const UpdateEvent: React.FC = () => {
         date: undefined,
         time: undefined,
       };
-      console.log(formData.id)
       const response = await updateEvent(eventDetails, formData.id);
-      console.log("Event created successfully!", response.data);
     } catch (error) {
       console.error("Error creating event!", error);
     }

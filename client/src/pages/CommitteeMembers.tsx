@@ -38,7 +38,6 @@ const CommitteeMembers: React.FC = () => {
     fetchMembers();
   }, []);
 
-  console.log(heads, members);
 
   return (
     <div className="container mx-auto px-20 py-8">

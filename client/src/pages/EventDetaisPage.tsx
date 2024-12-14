@@ -62,7 +62,6 @@ const EventDetailsPage = () => {
       if (eventName) {
         try {
           const response = await getEventDetails(eventName);
-          console.log(response);
           const url = extractEmbedCode(response.data.eventDetails.eventPoster);
           const updatedEvent = {
             ...response.data.eventDetails,

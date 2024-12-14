@@ -42,7 +42,6 @@ const CreateEvent: React.FC = () => {
 
         setToast({ message: "Event created successfully!", isVisible: true, type: "success" });
       }
-      console.log("Event created successfully!", response.data);
     } catch (error: any) {
       console.error("Error creating event!", error);
       const errorMessage = error.response?.data?.message || "Failed to create event. Please try again.";

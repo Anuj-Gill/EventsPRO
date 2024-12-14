@@ -13,12 +13,10 @@ export const useCommitteeEvent = (committeeName: string | null) => {
       // If `committeeName` is provided, fetch events for the specific committee
       if (committeeName) {
         response = await getCommitteeEvents(committeeName);
-        console.log(response?.data?.events);
       } else {
         // If `committeeName` is null, fetch all events
         response = await getALlEvents();
 
-        console.log(response?.data?.events);
       }
 
       if (response?.data?.events) {

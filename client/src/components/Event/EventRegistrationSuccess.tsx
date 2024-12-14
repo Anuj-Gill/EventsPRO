@@ -131,7 +131,6 @@ const EventRegistrationSuccess: React.FC<EventRegistrationSuccessProps> = ({
     // Show feedback modal after 3-4 seconds if feedback hasn't been given
     if (!feedBack) {
       const timer = setTimeout(() => {
-        console.log("setting modal open");
         setIsFeedbackModalOpen(true);
       }, 3500);
 

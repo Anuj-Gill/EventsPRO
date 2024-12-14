@@ -10,7 +10,6 @@ export function AnimatedTestimonialsDemo() {
   const fetchData = async () => {
     try {
       const response = await getFeedbacksApi();
-      console.log(response);
       if (response.status == 200) {
         setTestimonials(response?.data?.feedbacks);
       }
