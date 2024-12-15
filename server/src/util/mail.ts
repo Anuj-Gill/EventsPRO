@@ -25,7 +25,7 @@ export const sendEmail = async (
 
   try {
     const info = await transporter.sendMail({
-      from: "anujgill212@gmail.com",
+      from: '"EventsPRO" <anujgill212@gmail.com>',
       to: receiverEmail,
       subject: "Event Registration Confirmation ✔",
       html: `
