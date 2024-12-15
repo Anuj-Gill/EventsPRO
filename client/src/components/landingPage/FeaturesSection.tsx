@@ -33,7 +33,7 @@ const FeaturesSection = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-20" ref={featuresRef}>
+    <div className="max-w-6xl mx-auto px-6 py-10 md:py-20" ref={featuresRef}>
       <h2 className="text-4xl font-bold text-center mb-16 animate-fade-in-up">
         Everything You Need
       </h2>

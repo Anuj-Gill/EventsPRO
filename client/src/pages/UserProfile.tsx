@@ -49,7 +49,14 @@ const UserProfile: React.FC = () => {
       setToast({ isVisible: true, message: "Profile updated!", type: "success" });
     } catch (error: any) {
       console.error("Error updating user info:", error);
-      const errorMessage = error.response?.data?.message || "An error occurred";
+      if (error.response?.status === 413) {
+        setToast({
+          isVisible: true,
+          message: "Image is too large. Try uploading a smaller resolution.",
+          type: "error",
+        });
+      }
+      const errorMessage = error.response?.data?.message || "Upload a more compressed profile picture!";
       setToast({ isVisible: true, message: errorMessage, type: "error" });
     }
     setUpdating(false);
@@ -67,7 +74,8 @@ const UserProfile: React.FC = () => {
 
         // Check base64 string size before updating form data
         const fileSizeInKb = getEstimatedFileSizeFromBase64(base64String);
-        if (fileSizeInKb > 3000) { // Check for 5MB limit
+        console.log(fileSizeInKb)
+        if (fileSizeInKb > 3000) { // Check for 3MB limit
           setToast({ isVisible: true, message: "Image exceeds 3MB limit!", type: "error" });
         } else {
           // Update form data with base64 image if size is acceptable
@@ -82,10 +90,21 @@ const UserProfile: React.FC = () => {
 
   // Function to estimate base64 string size (improved accuracy)
   function getEstimatedFileSizeFromBase64(base64String: string) {
-    const stringLength = base64String.length;
-    const sizeInBytes = Math.ceil(stringLength / 3) * 4 * 0.75; // Adjusted factor for Base64 overhead
+    const base64Length = base64String.length;
+
+    // Remove 'data:image/png;base64,' or similar metadata prefixes if present
+    const cleanBase64String = base64String.split(",").pop() || "";
+
+    // Count the padding characters '='
+    const padding = (cleanBase64String.match(/=+$/) || [""])[0].length;
+
+    // Calculate size in bytes (Base64 size * 3/4) minus padding bytes
+    const sizeInBytes = (cleanBase64String.length * 3) / 4 - padding;
+
+    // Convert to KB
     const fileSizeInKb = sizeInBytes / 1024;
-    return fileSizeInKb;
+
+    return Math.round(fileSizeInKb * 100) / 100; // Return size rounded to 2 decimal places
   }
 
 
@@ -129,7 +148,7 @@ const UserProfile: React.FC = () => {
       />
 
       <div
-        className="relative z-10 container mx-auto px-4 pb-12 flex flex-col items-center"
+        className="relative z-10 container mx-auto px-4 pb-12 mt-10 flex flex-col items-center"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >

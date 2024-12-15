@@ -185,7 +185,7 @@ const EventRegistrationSuccess: React.FC<EventRegistrationSuccessProps> = ({
   const hasTeamDetails = !!teamCode;
 
   return (
-    <>
+    <div className='py-12 md:py-0 '>
       <Toast
         isVisible={toast.isVisible}
         message={toast.message}
@@ -198,21 +198,21 @@ const EventRegistrationSuccess: React.FC<EventRegistrationSuccessProps> = ({
           desktopStrokeWidth: 5,
           duration: 10
         }}
-        className="min-h-screen flex items-center justify-center px-4 -mt-4"
+        className="min-h-screen flex items-center justify-center px-4 "
       >
         <div className="max-w-5xl w-full mx-auto p-4 relative z-20">
           {hasTeamDetails ? (
             <div className="grid md:grid-cols-2 gap-8 items-center">
               {/* Individual/Event Details Column */}
               <div className="text-center md:text-left space-y-6">
-                <h1 className="relative z-20 text-4xl md:text-6xl text-white font-bold mb-4">
+                <h1 className="relative z-20 text-4xl md:text-6xl text-white font-bold ">
                   You're In! 🎉
                 </h1>
                 <div className=" rounded-2xl p-6 inline-block">
                   <img
                     src={`${qrCodeBase64}`}
                     alt="Event Entry QR Code"
-                    className="w-64 h-64 mx-auto rounded-xl shadow-lg"
+                    className="w-64 md:w-56 h-64 md:h-56 mx-auto rounded-xl shadow-lg"
                   />
                   <div className="mt-4 space-y-4">
                     <h2 className="text-2xl font-semibold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -274,7 +274,7 @@ const EventRegistrationSuccess: React.FC<EventRegistrationSuccessProps> = ({
               </div>
             </div>
           ) : (
-            <div className="text-center space-y-6 max-w-2xl mx-auto">
+            <div className="text-center -mt-56 md:mt-0 max-w-2xl mx-auto">
               <h1 className="relative z-20 text-4xl md:text-6xl text-white font-bold mb-4">
                 You're In! 🎉
               </h1>
@@ -282,7 +282,7 @@ const EventRegistrationSuccess: React.FC<EventRegistrationSuccessProps> = ({
                 <img
                   src={`${qrCodeBase64}`}
                   alt="Event Entry QR Code"
-                  className="w-64 h-64 mx-auto rounded-xl shadow-lg"
+                  className="w-64 md:w-56 md:h-56 h-64 mx-auto rounded-xl shadow-lg"
                 />
                 <div className="mt-4 space-y-4">
                   <h2 className="text-2xl font-semibold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -316,7 +316,7 @@ const EventRegistrationSuccess: React.FC<EventRegistrationSuccessProps> = ({
         onClose={() => setIsFeedbackModalOpen(false)}
         onSubmit={handleFeedbackSubmit}
       />
-    </>
+    </div>
   );
 };
 

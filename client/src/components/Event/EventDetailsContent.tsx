@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   CalendarDays,
   MapPin,
@@ -9,7 +9,10 @@ import {
   Users as UsersIcon,
   TicketCheck,
   Phone,
-  UserCircle2
+  UserCircle2,
+  Share2,
+  X,
+  Copy
 } from 'lucide-react';
 import { IconType } from 'react-icons';
 import { FaInstagram, FaLinkedin, FaTwitter, FaGlobe } from 'react-icons/fa';
@@ -68,6 +71,7 @@ const EventDetailsContent: React.FC<EventDetailsContentProps> = ({
   socialHandles = [],
 }) => {
   const navigate = useNavigate();
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   const handleViewTicket = () => {
     navigate("/event/register/success", {
@@ -79,6 +83,59 @@ const EventDetailsContent: React.FC<EventDetailsContentProps> = ({
       },
     });
   };
+
+  const handleShareClick = () => {
+    setIsShareModalOpen(true);
+  };
+
+  const handleCopyLink = () => {
+    const eventLink = window.location.href;
+    navigator.clipboard.writeText(eventLink).then(() => {
+      alert('Event link copied to clipboard!');
+      setIsShareModalOpen(false);
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  };
+
+  const ShareModal = () => {
+    if (!isShareModalOpen) return null;
+
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        <div className="bg-gray-800 rounded-xl p-6 w-96 relative">
+          <button
+            onClick={() => setIsShareModalOpen(false)}
+            className="absolute top-4 right-4 text-white hover:text-gray-300"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <h2 className="text-2xl font-bold mb-6 text-purple-300">Share Event</h2>
+
+          <p className="text-white/80 mb-4">
+            Share this event with friends and colleagues by copying the link below:
+          </p>
+
+          {/* Copy Link Section */}
+          <div className="bg-gray-700 rounded-lg p-3 flex items-center">
+            <input
+              type="text"
+              readOnly
+              value={window.location.href}
+              className="bg-transparent w-full text-white outline-none mr-2 truncate"
+            />
+            <button
+              onClick={handleCopyLink}
+              className="bg-purple-600 hover:bg-purple-700 p-2 rounded-lg transition-colors"
+            >
+              <Copy className="w-5 h-5 text-white" />
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
 
   const renderSocialHandles = () => {
     if (socialHandles.length === 0) return null;
@@ -121,13 +178,26 @@ const EventDetailsContent: React.FC<EventDetailsContentProps> = ({
 
 
   return (
-    <div className="">
-      <div className="relative z-10 container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <h1 className="text-4xl font-bold bg-clip-text text-white bg-gradient-to-r from-purple-400 to-blue-600">
-              {event.eventName}
-            </h1>
+    <div className="relative">
+      <ShareModal />
+      <div className="relative z-10 container mx-auto px-4 pt-6">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
+          <div className="space-y-8 md:-mt-20">
+            <div className='flex space-x-4 items-center'>
+              <h1 className="text-4xl mb-2 font-bold bg-clip-text text-white bg-gradient-to-r from-purple-400 to-blue-600">
+                {event.eventName}
+              </h1>
+              <button
+                onClick={handleShareClick}
+                className="text-white hover:text-purple-300 transition-colors flex items-center gap-2"
+                title="Share Event"
+              >
+                <Share2 className="w-7 h-7" />
+                <span className="text-sm">Share</span>
+              </button>
+
+            </div>
+
 
             <div className="grid grid-cols-2 gap-4 text-white/80">
               {[
@@ -181,7 +251,7 @@ const EventDetailsContent: React.FC<EventDetailsContentProps> = ({
             )}
           </div>
 
-          <div className="relative flex flex-col items-center ">
+          <div className="relative flex flex-col items-center md:pt-10 ">
 
             {renderSocialHandles()}
             <div className="w-full max-w-sm aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-purple-600/30 mt-10">
@@ -194,8 +264,8 @@ const EventDetailsContent: React.FC<EventDetailsContentProps> = ({
           </div>
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 py-16">
-          <div className="mt-16 max-w-2xl mx-auto">
+        <div className="relative z-10 container mx-auto px-4 py-6">
+          <div className="mt-6 max-w-2xl mx-auto">
             {registered ? (
               <button
                 onClick={handleViewTicket}
@@ -230,7 +300,7 @@ const EventDetailsContent: React.FC<EventDetailsContentProps> = ({
                 ) : null}
 
                 {teamAction === 'join' && register && (
-                  <div className="bg-gray-800/50 p-6 rounded-xl space-y-4">
+                  <div className="bg-gray-800/50 p-6 rounded-xl  space-y-4">
                     <h3 className="text-xl font-semibold text-purple-300">Join Team</h3>
                     <input
                       type="text"

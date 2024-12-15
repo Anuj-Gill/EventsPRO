@@ -4,7 +4,7 @@ import { WavyBackground } from "../ui/wavy-background";
 const WavySection = () => {
   return (
     <div className="pt-20">
-      <WavyBackground className="max-w-6xl mx-auto py-56">
+      <WavyBackground className="max-w-6xl mx-auto py-28 md:py-56">
         <p className="text-2xl md:text-4xl lg:text-6xl text-white font-bold text-center">
           Managing Events Just Got Easier
         </p>

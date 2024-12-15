@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCommittees } from '../hooks/useCommittees';
 import CommitteeCard from '../components/Committee/CommitteeCard';
+import Loading from "../components/Helpers/Loading";
 
 const colors = [
   "from-blue-500/20 to-cyan-500/20",
@@ -17,7 +18,7 @@ const colors = [
 const CommitteePage: React.FC = () => {
   const { committees, loading, error } = useCommittees();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div><Loading text="Fetching committees..." /></div>;
   if (error) return <div>Error loading committees.</div>;
 
   return (

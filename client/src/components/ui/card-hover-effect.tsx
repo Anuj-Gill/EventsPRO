@@ -48,14 +48,14 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-10 pr-10 w-screen",
+        "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-6 md:pr-10 py-10 md:w-screen",
         className
       )}
     >
       {items.map((item, idx) => (
         <div
           key={item?.link}
-          className="relative group block p-2 h-full w-full"
+          className="relative group block p-2 h-full w-full cursor-pointer"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
           onClick={() => handleCardClick(item.title)}
@@ -80,12 +80,14 @@ export const HoverEffect = ({
           </AnimatePresence>
           <Card>
             {posterUrls[idx] && (
-              <div className="h-[300px] w-[300px] overflow-hidden rounded-lg">
-                <iframe
-                  src={posterUrls[idx] || undefined}
-                  className="h-full object-cover border-none px-auto"
-                  allow="autoplay"
-                />
+              <div className="h-[300px] w-full   overflow-hidden rounded-lg ">
+                <div className="pointer-events-auto h-full">
+                  <iframe
+                    src={posterUrls[idx] || undefined}
+                    className="h-full w-full object-cover border-none pointer-events-none touch-none"
+                    allow="autoplay"
+                  />
+                </div>
               </div>
             )}
             <CardTitle>{item.title}</CardTitle>

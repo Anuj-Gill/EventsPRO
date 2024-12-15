@@ -83,9 +83,7 @@ const EventDetailsPage = () => {
   useEffect(() => {
     const fetchSocialHandles = async () => {
       try {
-        console.log("fetching sc from db");
         const response = await getSocialHandlesUsersApi(Number(event?.committeeId));
-        console.log(response);
         setSocialHandles(response.data.socialHandles);
       } catch (err) {
         console.error(err);
@@ -102,14 +100,12 @@ const EventDetailsPage = () => {
       if (event?.id) {
         try {
           const response = await checkRegistered({ eventId: event.id });
-          console.log(response);
           if (response.data.status) {
             setRegistered(true);
             setQrCode(response.data.qrCode);
             if (response.data.teamCode) {
               setTeamCode(response.data.teamCode);
               const teamMembersNames = response.data.teamMembers?.map((member: any) => member.user.name);
-              console.log(teamMembersNames);
               setTeamMembers(teamMembersNames)
             }
           }
@@ -131,7 +127,6 @@ const EventDetailsPage = () => {
         setQrCode(response.data.qrCode);
         if (response.data.teamMembers) {
           const teamMembersNames = response.data.teamMembers?.map((member: any) => member.user.name);
-          console.log(teamMembersNames);
           setTeamMembers(teamMembersNames)
         }
       }
@@ -144,18 +139,15 @@ const EventDetailsPage = () => {
   const createTeam = async () => {
     setLoading(true);
     try {
-      console.log("creating team!");
       const response = await registerTeam({ eventId: event?.id as number });
       if (response.data.qrCode) {
         setQrCode(response.data.qrCode);
         setTeamCode(response.data.teamCode);
         if (response.data.teamMembers) {
           const teamMembersNames = response.data.teamMembers?.map((member: any) => member.user.name);
-          console.log(teamMembersNames);
           setTeamMembers(teamMembersNames)
         }
       }
-      console.log(response);
     } catch (error) {
       console.error("Error during creating team:", error);
     }

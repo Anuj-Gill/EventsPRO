@@ -55,7 +55,6 @@ const Dashboard: React.FC = () => {
   }, []);
 
   const handleVerificationComplete = () => {
-    // Optional: Perform any additional actions when verification is complete
     setVerifyStatus(true);
   };
 
@@ -66,34 +65,50 @@ const Dashboard: React.FC = () => {
   return (
     <div className="relative px-4 py-10">
       {/* Header Section */}
-      <div className="relative z-10 flex justify-between items-center mt-2 px-6">
-        <h1 className="text-4xl font-bold bg-clip-text text-white">
+      <div className="relative z-10 flex flex-col sm:flex-row justify-between md:w-full items-start mt-2 md:w-full items-center md:px-6">
+        <h1 className="text-2xl sm:text-4xl font-bold bg-clip-text text-white mb-4 sm:mb-0 sm:w-full">
           Upcoming Events
         </h1>
-        <div className="flex gap-4">
-          <button
-            onClick={() => navigate("/committees")}
-            className="px-4 py-2 bg-purple-600/20 hover:bg-purple-600/30 rounded-lg backdrop-blur-sm border border-purple-500/20 transition-all flex items-center gap-2"
-          >
-            <IconUsers className="w-4 h-4" />
-            Committees
-          </button>
-          {(role?.includes("Head") || role?.includes("Member")) && (
+
+        {/* Horizontally Scrollable Button Container */}
+        <div className="w-full overflow-x-auto">
+          <div className="flex gap-4 pb-2 min-w-max sm:justify-end">
             <button
-              onClick={() => navigate("/committeedashboard")}
-              className="px-4 py-2 bg-blue-600/20 hover:bg-blue-600/30 rounded-lg backdrop-blur-sm border border-blue-500/20 transition-all flex items-center gap-2"
+              onClick={() => navigate("/user/stats")}
+              className="flex-shrink-0 relative inline-flex h-10 sm:h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
             >
-              <IconSettings className="w-4 h-4" />
-              Manage Committee
+              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+              <span className="inline-flex hover:bg-gray-900 transition-smooth h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-4 sm:px-6 py-1 text-sm sm:text-md font-medium text-white backdrop-blur-3xl">
+                User Stats
+              </span>
             </button>
-          )}
-          <button
-            onClick={() => navigate("/events")}
-            className="text-sm px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg transition-all flex items-center gap-2"
-          >
-            <IconCalendarEvent className="w-4 h-4" />
-            View all events
-          </button>
+
+            <button
+              onClick={() => navigate("/committees")}
+              className="flex-shrink-0 px-3 sm:px-4 py-2 bg-purple-600/20 hover:bg-purple-600/30 rounded-lg backdrop-blur-sm border border-purple-500/20 transition-all flex items-center gap-2"
+            >
+              <IconUsers className="w-4 h-4" />
+              Committees
+            </button>
+
+            {(role?.includes("Head") || role?.includes("Member")) && (
+              <button
+                onClick={() => navigate("/committeedashboard")}
+                className="flex-shrink-0 px-3 sm:px-4 py-2 bg-blue-600/20 hover:bg-blue-600/30 rounded-lg backdrop-blur-sm border border-blue-500/20 transition-all flex items-center gap-2"
+              >
+                <IconSettings className="w-4 h-4" />
+                Manage Committee
+              </button>
+            )}
+
+            <button
+              onClick={() => navigate("/events")}
+              className="flex-shrink-0 text-xs sm:text-sm px-2 sm:px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg transition-all flex items-center gap-2"
+            >
+              <IconCalendarEvent className="w-4 h-4" />
+              View all events
+            </button>
+          </div>
         </div>
       </div>
 
