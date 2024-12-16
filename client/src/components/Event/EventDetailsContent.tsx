@@ -142,7 +142,7 @@ const EventDetailsContent: React.FC<EventDetailsContentProps> = ({
 
     return (
       <div className="bg-gray-800/50 flex items-center p-4 rounded-xl">
-        <h3 className="text-xl font-semibold mr-4 text-purple-300">
+        <h3 className="text-md md:text-xl font-semibold mr-4 text-purple-300">
           Committee Social Handles:
         </h3>
         <div className="flex items-center gap-4">
@@ -282,13 +282,13 @@ const EventDetailsContent: React.FC<EventDetailsContentProps> = ({
                         setTeamAction('create');
                         createTeam();
                       }}
-                      className="w-full bg-purple-600 hover:bg-purple-700 transition-colors py-4 rounded-lg flex items-center justify-center gap-3"
+                      className="w-full bg-purple-600 hover:bg-purple-700 transition-colors  py-2 md:py-4 rounded-lg flex items-center justify-center md:gap-3"
                     >
                       <UserPlus /> Create Team
                     </button>
                     <button
                       onClick={() => setTeamAction('join')}
-                      className="w-full bg-blue-600 hover:bg-blue-700 transition-colors py-4 rounded-lg flex items-center justify-center gap-3"
+                      className="w-full bg-blue-600 hover:bg-blue-700 transition-colors py-4 rounded-lg flex items-center justify-center md:gap-3"
                     >
                       <UsersIcon /> Join Team
                     </button>

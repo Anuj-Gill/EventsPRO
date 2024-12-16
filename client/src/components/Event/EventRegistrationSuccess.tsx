@@ -185,7 +185,7 @@ const EventRegistrationSuccess: React.FC<EventRegistrationSuccessProps> = ({
   const hasTeamDetails = !!teamCode;
 
   return (
-    <div className='py-12 md:py-0 '>
+    <div className='py-48 md:py-0 '>
       <Toast
         isVisible={toast.isVisible}
         message={toast.message}
@@ -202,7 +202,7 @@ const EventRegistrationSuccess: React.FC<EventRegistrationSuccessProps> = ({
       >
         <div className="max-w-5xl w-full mx-auto p-4 relative z-20">
           {hasTeamDetails ? (
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="grid  md:grid-cols-2 gap-8 items-center">
               {/* Individual/Event Details Column */}
               <div className="text-center md:text-left space-y-6">
                 <h1 className="relative z-20 text-4xl md:text-6xl text-white font-bold ">

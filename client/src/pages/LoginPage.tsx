@@ -13,7 +13,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="h-screen flex flex-col text-white md:-mt-20">
-      <div className="flex flex-1 flex-col md:flex-row space-y-16">
+      <div className="flex flex-1 flex-col md:flex-row space-y-4 md:space-y-16">
         {/* Left Section */}
         <div className="w-full md:w-1/2 flex lg:-mt-16  flex-col justify-center px-6 md:px-10 py-10 md:py-0 space-y-6 text-center ">
           <h1 className="text-3xl md:text-4xl font-bold leading-tight">

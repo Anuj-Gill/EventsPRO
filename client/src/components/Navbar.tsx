@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-gray-900/40 backdrop-blur-sm border-b border-white/10 text-white py-3 lg:px-16 px-4 flex justify-between items-center z-50">
+    <nav className="fixed top-0 left-0 right-0 bg-gray-900/40 backdrop-blur-sm border-b border-white/10 text-white py-3 lg:px-16 px-2 flex justify-between items-center z-50">
       <div className="flex items-center space-x-2">
         <div className="w-8 h-8 bg-purple-500/10 rounded flex items-center justify-center">
           <img
@@ -39,7 +39,7 @@ const Navbar = () => {
         </span>
       </div>
 
-      <div className="flex items-center space-x-4 md:space-x-8">
+      <div className="flex items-center  w-full justify-end space-x-3 md:space-x-8">
         {!loggedIn ? (
           <>
             <GitHubStars repoUrl="https://github.com/Anuj-Gill/EventsPRO" />
@@ -57,7 +57,7 @@ const Navbar = () => {
             </a>
           </>
         ) : (
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
             <a
               onClick={() => navigate('/dashboard')}
               className="text-sm md:text-base font-semibold text-white bg-purple-600 hover:bg-purple-700 px-3 md:px-4 py-1.5 md:py-2 rounded-full transition-colors duration-200 cursor-pointer flex items-center space-x-2"

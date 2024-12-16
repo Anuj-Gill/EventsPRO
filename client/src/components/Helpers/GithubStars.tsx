@@ -27,7 +27,7 @@ const GitHubStars = ({ repoUrl }) => {
 
   return (
 
-    <button onClick={() => window.open(repoUrl, '_blank')} className="flex items-center space-x-1 px-2 py-1 rounded-md">
+    <button onClick={() => window.open(repoUrl, '_blank')} className="flex items-center space-x-1 py-1 rounded-md">
       <img
         src='https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png'
         className='w-8 h-8 rounded-full'
